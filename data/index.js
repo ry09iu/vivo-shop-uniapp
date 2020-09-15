@@ -8,12 +8,12 @@ const json = {
 
 export default (name, loading = true) => {
 	if (loading) {
-		uni.showLoading()
+		// uni.showLoading()
 	}
 
 	return new Promise(resolve => {
 		setTimeout(() => {
-			uni.hideLoading()
+			// uni.hideLoading()
 			resolve(json[name])
 		}, 500)
 	})

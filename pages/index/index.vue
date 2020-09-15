@@ -20,7 +20,7 @@
 			<text class="cate-title">— 超值拼团 —</text>
 			<view class="pool-swiper">
 				<scroll-view class="scroll" scroll-x="true" scroll-with-animation>
-					<view class="item-wrap" v-for="(item,index) in floorList[1].positionList" :key="index">
+					<view class="item-wrap" v-for="(item,index) in floorList[1].positionList" :key="item.spuId">
 						<pool-item :info="item" />
 					</view>
 				</scroll-view>
@@ -29,6 +29,12 @@
 			<view class="pool-footer">
 				<text class="more">查看更多 ></text>
 			</view>
+		</view>
+
+		<view style="padding-bottom: 16rpx;">
+			<card-list :info="floorList[2]"></card-list>
+			
+			<card-list :info="floorList[3]"></card-list>
 		</view>
 	</view>
 	<view class="home-bg" v-else>
@@ -39,10 +45,12 @@
 <script>
 	import BannerFooter from './components/footer.vue'
 	import PoolItem from './components/pool.vue'
+	import CardList from './components/card.vue'
 	export default {
 		components: {
 			BannerFooter,
-			PoolItem
+			PoolItem,
+			CardList
 		},
 		data() {
 			return {
@@ -90,7 +98,6 @@
 
 	.new-product {
 		margin-top: 16rpx;
-		// height: 600rpx;
 		background: #fff;
 		text-align: center;
 
@@ -127,22 +134,22 @@
 			overflow: hidden;
 			width: 100%;
 		}
-		
+
 		.item-wrap {
 			margin-right: 10rpx;
 			display: inline-block;
 			width: 38vw;
-			
+
 			&:last-child {
 				margin-right: 0;
 			}
 		}
-		
+
 		.pool-footer {
-			height: 70rpx;
-			line-height: 70rpx;
+			height: 80rpx;
+			line-height: 80rpx;
 			text-align: center;
-			
+
 			.more {
 				color: $uni-text-color-assist;
 				font-size: 24rpx;
