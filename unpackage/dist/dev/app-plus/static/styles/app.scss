@@ -1,9 +1,22 @@
 page {
+	height: 100%;
 	background: $uni-bg-color-grey;
 }
 
-// u-Swiper
+// u-View components
 .u-swiper-indicator {
 	bottom: 38rpx !important;
 	padding-right: 38rpx !important;
+}
+
+.u-indicator-item-round {
+	background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.u-indicator-item-round-active {
+	background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.u-card {
+	margin: 0 30rpx !important;
 }

@@ -1,7 +1,9 @@
 import banners from './banners.js'
+import floorList from './floor_list.js'
 
 const json = {
 	banners,
+	floorList
 }
 
 export default (name, loading = true) => {
