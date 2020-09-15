@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "Vivo 官方商城"
 			}
 		},
 		{
@@ -34,7 +34,7 @@
 				"pagePath": "pages/index/index",
 				"iconPath": "static/images/tabbar/home.png",
 				"selectedIconPath": "static/images/tabbar/home_selected.png",
-				"text": "首页"
+				"text": "Vivo 官方商城"
 			},
 			{
 				"pagePath": "pages/category/category",
@@ -49,5 +49,8 @@
 				"text": "我的"
 			}
 		]
+	},
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	}
 }
