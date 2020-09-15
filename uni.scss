@@ -18,6 +18,9 @@
 @import 'uview-ui/theme.scss';
 
 /* 自定义颜色变量 */
+$my-color-primary: #f51043;
+$my-card-bg-color: #f9fafb;
+$my-card-label-color: #fd2376;
 
 /* 行为相关颜色 */
 $uni-color-primary: #007aff;
@@ -27,6 +30,7 @@ $uni-color-error: #dd524d;
 
 /* 文字基本颜色 */
 $uni-text-color:#333;//基本色
+$uni-text-color-sec:#666;//基本色
 $uni-text-color-inverse:#fff;//反色
 $uni-text-color-grey:#999;//辅助灰色，如加载更多的提示信息
 $uni-text-color-assist:#aaa;

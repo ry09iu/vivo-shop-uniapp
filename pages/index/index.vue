@@ -1,36 +1,53 @@
 <template>
-	<view class="home">
+	<view class="home" v-if="!isLoading">
 		<view class="banner">
 			<u-swiper :list="banners" :border-radius="0" height="500" name="imageUrl" indicator-pos="bottomRight"></u-swiper>
 			<view class="footer">
 				<view v-for="(item,index) in footers" :key="index">
-					<BannerFooter :title="item.title" :img="item.img" />
+					<banner-footer :title="item.title" :img="item.img" />
 				</view>
 			</view>
 		</view>
 
 		<view class="new-product">
-			<text class="title">— 新品专区 —</text>
-			<u-card :border="false" :foot-border-top="false" :padding="0" :show-head="false" :show-foot="false"
-			 :head-border-bottom="false">
-				<view class="" slot="body">
-					<image class="img" :src="floorList[0] && floorList[0].positionList[0].imageUrl"></image>
-				</view>
-			</u-card>
+			<text class="cate-title">— 新品专区 —</text>
+			<view class="wrap">
+				<image class="img" mode="aspectFit" :src="floorList[0].positionList[0].imageUrl"></image>
+			</view>
 		</view>
 
+		<view class="shopping-pool">
+			<text class="cate-title">— 超值拼团 —</text>
+			<view class="pool-swiper">
+				<scroll-view class="scroll" scroll-x="true" scroll-with-animation>
+					<view class="item-wrap" v-for="(item,index) in floorList[1].positionList" :key="index">
+						<pool-item :info="item" />
+					</view>
+				</scroll-view>
+			</view>
+			<u-line class="u-line" color="#efefef"></u-line>
+			<view class="pool-footer">
+				<text class="more">查看更多 ></text>
+			</view>
+		</view>
+	</view>
+	<view class="home-bg" v-else>
+		<image class="loading-bg" src="../../static/images/home/vivo.png" mode="aspectFit"></image>
 	</view>
 </template>
 
 <script>
 	import BannerFooter from './components/footer.vue'
+	import PoolItem from './components/pool.vue'
 	export default {
 		components: {
-			BannerFooter
+			BannerFooter,
+			PoolItem
 		},
 		data() {
 			return {
 				title: 'Hello',
+				isLoading: false,
 				banners: [],
 				footers: [{
 					img: '/static/images/home/banner/official.png',
@@ -49,10 +66,12 @@
 			}
 		},
 		async onLoad() {
+			this.isLoading = true;
 			this.banners = await this.$api('banners')
-			console.log('this.banners',this.banners);
+			console.log('this.banners', this.banners);
 			this.floorList = await this.$api('floorList')
-			console.log('this.floorList',this.floorList);
+			console.log('this.floorList', this.floorList);
+			this.isLoading = false;
 		},
 		methods: {
 
@@ -71,20 +90,74 @@
 
 	.new-product {
 		margin-top: 16rpx;
-		padding-bottom: 20rpx;
 		// height: 600rpx;
 		background: #fff;
 		text-align: center;
 
-		.title {
-			width: 100%;
-			line-height: 84rpx;
-			font-size: 30rpx;
+		.wrap {
+			padding: 0 42rpx;
+
+			.img {
+				margin-top: -26rpx;
+				width: 100%;
+				height: 500rpx;
+			}
+		}
+	}
+
+	.cate-title {
+		width: 100%;
+		line-height: 84rpx;
+		font-size: 30rpx;
+	}
+
+	.shopping-pool {
+		margin-top: 16rpx;
+		background: #fff;
+		text-align: center;
+
+		.pool-swiper {
+			display: flex;
+			margin-bottom: 20rpx;
+			padding: 12rpx 42rpx 12rpx 32rpx;
 		}
 
-		.img {
+		.scroll {
+			white-space: nowrap;
+			overflow: hidden;
 			width: 100%;
-			height: 500rpx;
+		}
+		
+		.item-wrap {
+			margin-right: 10rpx;
+			display: inline-block;
+			width: 38vw;
+			
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		
+		.pool-footer {
+			height: 70rpx;
+			line-height: 70rpx;
+			text-align: center;
+			
+			.more {
+				color: $uni-text-color-assist;
+				font-size: 24rpx;
+			}
+		}
+	}
+
+	.home-bg {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+
+		.loading-bg {
+			width: 220rpx;
 		}
 	}
 </style>
