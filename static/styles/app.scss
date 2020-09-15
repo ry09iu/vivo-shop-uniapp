@@ -3,6 +3,17 @@ page {
 	background: $uni-bg-color-grey;
 }
 
+.home-bg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+	.loading-bg {
+		width: 220rpx;
+	}
+}
+	
 // u-View components
 .u-swiper-indicator {
 	bottom: 38rpx !important;

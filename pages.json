@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "Vivo 官方商城"
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -22,8 +22,8 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#FFF",
+		"backgroundColor": "#FFF"
 	},
 	"tabBar": {
 		"color": "#8a8a8a",

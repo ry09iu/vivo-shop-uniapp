@@ -1,9 +1,11 @@
 import banners from './banners.js'
 import floorList from './floor_list.js'
+import cateList from './cate_list.js'
 
 const json = {
 	banners,
-	floorList
+	floorList,
+	cateList
 }
 
 export default (name, loading = true) => {

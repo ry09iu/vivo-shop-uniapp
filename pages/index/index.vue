@@ -10,14 +10,14 @@
 		</view>
 
 		<view class="new-product">
-			<text class="cate-title">— 新品专区 —</text>
+			<text class="cate-title">— {{floorList[0].name}} —</text>
 			<view class="wrap">
 				<image class="img" mode="aspectFit" :src="floorList[0].positionList[0].imageUrl"></image>
 			</view>
 		</view>
 
 		<view class="shopping-pool">
-			<text class="cate-title">— 超值拼团 —</text>
+			<text class="cate-title">— {{floorList[1].name}} —</text>
 			<view class="pool-swiper">
 				<scroll-view class="scroll" scroll-x="true" scroll-with-animation>
 					<view class="item-wrap" v-for="(item,index) in floorList[1].positionList" :key="item.spuId">
@@ -33,7 +33,7 @@
 
 		<view style="padding-bottom: 16rpx;">
 			<card-list :info="floorList[2]"></card-list>
-			
+
 			<card-list :info="floorList[3]"></card-list>
 		</view>
 	</view>
@@ -157,14 +157,4 @@
 		}
 	}
 
-	.home-bg {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-
-		.loading-bg {
-			width: 220rpx;
-		}
-	}
 </style>
