@@ -1,4 +1,9 @@
-	.u-swiper-indicator {
-		bottom: 38rpx !important;
-		padding-right: 38rpx !important;
-	}
+page {
+	background: $uni-bg-color-grey;
+}
+
+// u-Swiper
+.u-swiper-indicator {
+	bottom: 38rpx !important;
+	padding-right: 38rpx !important;
+}
