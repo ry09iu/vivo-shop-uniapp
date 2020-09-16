@@ -248,7 +248,7 @@
 		border-left: 6rpx solid $my-card-label-color;
 		height: 24rpx;
 		left: 0;
-		top: 44rpx;
+		top: 40rpx;
 	}
 
 	.u-tab-view {
