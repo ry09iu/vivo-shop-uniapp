@@ -1,9 +1,142 @@
 <template>
-	<div>我的页面</div>
+	<view class="my">
+		<view class="header">
+			<view class="user">
+				<view class="left">
+					<u-avatar :src="src" :size="120"></u-avatar>
+					<view class="info">
+						<text class="name">Ry09iu</text>
+						<text>18812345678</text>
+					</view>
+				</view>
+				<view class="right">
+					<view>账号管理 <u-icon name="arrow-right" color="#cfcfcf" size="26"></u-icon>
+					</view>
+				</view>
+			</view>
+
+			<view class="order">
+				<view class="top">
+					<text class="title">我的订单</text>
+					<view class="more">更多 <u-icon name="arrow-right" color="#cfcfcf" size="26"></u-icon>
+					</view>
+				</view>
+				<view class="grid-list">
+					<view class="item-wrap" v-for="(item,index) in gridList" :key="index">
+						<grid-menu-item class="grid-item" :info="item"></grid-menu-item>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="menu">menu</view>
+	</view>
 </template>
 
 <script>
+	import GridMenuItem from './components/grid-menu-item.vue'
+	export default {
+		components: {
+			GridMenuItem
+		},
+		data() {
+			return {
+				isLoading: false,
+				navigationList: [],
+				src: '/static/images/my/avator.png',
+				gridList: [{
+					img: '/static/images/my/pay.png',
+					title: '待付款'
+				}, {
+					img: '/static/images/my/send.png',
+					title: '待收货'
+				}, {
+					img: '/static/images/my/appraise.png',
+					title: '待评价'
+				}, {
+					img: '/static/images/my/drawback.png',
+					title: '退货/退款'
+				}]
+			}
+		},
+		async onLoad() {}
+	}
 </script>
 
-<style>
+<style lang="scss" scoped>
+	.my {
+		color: $uni-text-color;
+		font-size: 26rpx;
+	}
+
+	.header {
+		background-image: linear-gradient(#feefef, #fff);
+
+		.user {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 60rpx 36rpx 36rpx;
+
+			.left {
+				display: flex;
+				align-items: center;
+
+				.info {
+					display: flex;
+					flex-direction: column;
+					margin-left: 24rpx;
+					color: #ccc;
+					font-size: 24rpx;
+				}
+
+				.name {
+					color: $uni-text-color;
+					font-size: 32rpx;
+					font-weight: bolder;
+				}
+			}
+
+			.right {
+				color: $uni-text-color-assist;
+			}
+		}
+
+		.order {
+			padding: 0 36rpx;
+
+			.top {
+				display: flex;
+				justify-content: space-between;
+
+				.title {
+					font-size: 36rpx;
+				}
+
+				.more {
+					color: $uni-text-color-assist;
+				}
+			}
+
+			.grid-list {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-evenly;
+				width: 100%;
+				padding: 42rpx 0;
+			}
+
+			.item-wrap {
+				flex: 1;
+				width: 25%;
+				min-width: 25%;
+				max-width: 25%;
+			}
+		}
+	}
+
+	.menu {
+		margin-top: 16rpx;
+		background: #FFFFFF;
+		height: 200rpx;
+	}
 </style>

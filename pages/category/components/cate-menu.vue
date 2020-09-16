@@ -321,8 +321,8 @@
 	}
 
 	.item-menu-image {
-		width: 220rpx;
-		height: 220rpx;
+		width: 210rpx;
+		height: 210rpx;
 	}
 
 	.title-line {

@@ -3,7 +3,6 @@
 		<view class="img-wrap">
 			<image class="img" :src="info.imageUrl" mode="aspectFit"></image>
 		</view>
-		<!-- <image class="img" :src="info.imageUrl" mode="aspectFit"></image> -->
 		<text class="name">{{info.name}}</text>
 		<text class="brief">{{info.brief}}</text>
 		<text class="price-wrap"><text class="symbol">¥</text><text class="price">{{info.salePrice}}</text> </text>
@@ -41,12 +40,6 @@
 				height: 38vw;
 				border-radius: 10rpx;
 			}
-		}
-		
-		.img {
-			width: 38vw;
-			height: 38vw;
-			border-radius: 10rpx;
 		}
 
 		.name {

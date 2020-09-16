@@ -27,7 +27,8 @@
 			</view>
 			<u-line class="u-line" color="#efefef"></u-line>
 			<view class="pool-footer">
-				<text class="more">查看更多 ></text>
+				<view class="more">查看更多 <u-icon name="arrow-right" color="#cfcfcf" size="22"></u-icon>
+				</view>
 			</view>
 		</view>
 
