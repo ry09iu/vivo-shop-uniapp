@@ -1,6 +1,9 @@
 <template>
 	<view class="my">
 		<view class="header">
+			<!-- <view class="nav">
+				<text>我的</text>
+			</view> -->
 			<view class="user">
 				<view class="left">
 					<u-avatar :src="src" :size="120"></u-avatar>
@@ -88,6 +91,14 @@
 		color: $uni-text-color;
 		font-size: 26rpx;
 	}
+	
+	.nav {
+		padding: 44rpx 0 0;
+		width: 100%;
+		text-align: center;
+		line-height: 100rpx;
+		font-size: 38rpx;
+	}
 
 	.header {
 		background-image: linear-gradient(#feefef, #fff);
@@ -96,7 +107,7 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			padding: 60rpx 36rpx 36rpx;
+			padding: 120rpx 36rpx 36rpx;
 
 			.left {
 				display: flex;
