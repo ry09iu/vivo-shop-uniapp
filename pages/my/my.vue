@@ -22,21 +22,29 @@
 					</view>
 				</view>
 				<view class="grid-list">
-					<view class="item-wrap" v-for="(item,index) in gridList" :key="index">
+					<view class="grid-item-wrap" v-for="(item,index) in gridList" :key="index">
 						<grid-menu-item class="grid-item" :info="item"></grid-menu-item>
 					</view>
 				</view>
 			</view>
 		</view>
-		<view class="menu">menu</view>
+		<view class="content">
+			<view class="menu-list">
+				<view class="menu-item-wrap" v-for="(item,index) in menuList" :key="index">
+					<menu-item class="menu-item" :info="item"></menu-item>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
 	import GridMenuItem from './components/grid-menu-item.vue'
+	import MenuItem from './components/menu-item.vue'
 	export default {
 		components: {
-			GridMenuItem
+			GridMenuItem,
+			MenuItem
 		},
 		data() {
 			return {
@@ -55,6 +63,19 @@
 				}, {
 					img: '/static/images/my/drawback.png',
 					title: '退货/退款'
+				}],
+				menuList: [{
+					img: '/static/images/my/coupon.png',
+					title: '我的优惠券'
+				}, {
+					img: '/static/images/my/favorite.png',
+					title: '我的收藏'
+				}, {
+					img: '/static/images/my/appraise2.png',
+					title: '我的评价'
+				}, {
+					img: '/static/images/my/address1.png',
+					title: '我的收货地址',
 				}]
 			}
 		},
@@ -125,7 +146,7 @@
 				padding: 42rpx 0;
 			}
 
-			.item-wrap {
+			.grid-item-wrap {
 				flex: 1;
 				width: 25%;
 				min-width: 25%;
@@ -134,9 +155,12 @@
 		}
 	}
 
-	.menu {
-		margin-top: 16rpx;
+	.content {
+		margin-top: 36rpx;
 		background: #FFFFFF;
-		height: 200rpx;
+		
+		.menu-list {
+			padding: 0 36rpx;
+		}
 	}
 </style>
